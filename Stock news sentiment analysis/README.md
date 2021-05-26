@@ -1,0 +1,1 @@
+This program is to see if sentiment scores of any news articles from MarketWatch (https://www.marketwatch.com/) for selected stocks have an effect on their prices. Though the analysis has been made for the MarketWatch, one could repeat it for any other financial website that has article links.
