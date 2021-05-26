@@ -1,6 +1,6 @@
 # Import libraries
 import sys
-sys.path.insert(1, YOUR_PATH)
+sys.path.insert(1, 'YOUR_PATH_TO_AWSResourceDeploy_SCRIPT_ON_YOUR_LOCAL_MACHINE')
 from colorama import Fore, Back, Style
 import time
 import json
