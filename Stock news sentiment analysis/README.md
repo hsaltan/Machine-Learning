@@ -1,4 +1,4 @@
-This program is to see if sentiment scores of any news articles from MarketWatch (https://www.marketwatch.com/) for selected stocks have an effect on their prices. Though the analysis has been made for the MarketWatch, one could repeat it for any other financial website that has article links.
+This program is to see if sentiment scores of any news articles from _MarketWatch_ (https://www.marketwatch.com/) for selected stocks have an effect on their prices. Though the analysis has been made for the _MarketWatch_, one could repeat it for any other financial website that has article links.
 
 Program makes use of AWS resources, python, text analysis, visualization, web scraping, correlation and regression analysis. It first builds EC2 and RDS, then populates RDS by web scraping to find URLs, calculating sentiment scores, finding stock prices and returns, and finally performs analyses and plots the data. The whole process is managed by main.py file which has a menu that enables the process to be done partially at different times.
 
