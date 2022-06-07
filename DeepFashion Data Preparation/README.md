@@ -19,12 +19,13 @@ Each image is annotated by bounding box, clothing type and pose type.
 
 However, there are issues that need to be taken care of before feeding this dataset to any segmentation algorithm.
 
-The data comes in the following form of hierarchy:
+The data comes in the form of hierarchy on the left and we need to turn into the format on the right for training:  
 
-
-We need to turn into the following format for training:
+![hierarchy](https://user-images.githubusercontent.com/40828825/172366701-29739ca9-95d3-4183-80f9-693ffea8c59b.png)  
 
 Second issue is that all masks have three channels but we may want to make them into one channel as shown below. 
+
+![label_transformation](https://user-images.githubusercontent.com/40828825/172366804-67e8b4c8-b969-4bee-b56e-18ece99a9493.png)  
 
 Lastly, not all images have masks; there are more images than masks. So, we need to take only the images with masks.
 
