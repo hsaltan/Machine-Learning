@@ -1,0 +1,38 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+numpy = "*"
+pandas = "*"
+plotly = "*"
+plotly-express = "*"
+mlflow = "*"
+jupyter = "*"
+scikit-learn = "*"
+seaborn = "*"
+hyperopt = "*"
+xgboost = "*"
+fastparquet = "*"
+boto3 = "*"
+statsmodels = "*"
+pickle5 = "*"
+jupyter-contrib-nbextensions = "*"
+astroid = "*"
+psycopg2-binary = "*"
+pendulum = "*"
+werkzeug = "==2.1.2"
+flask = "*"
+evidently = "*"
+
+[dev-packages]
+pylint = "*"
+black = "*"
+isort = "*"
+pytest = "*"
+pre-commit = "*"
+localstack = "*"
+
+[requires]
+python_version = "3.9"

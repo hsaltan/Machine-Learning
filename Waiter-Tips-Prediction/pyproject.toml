@@ -1,0 +1,15 @@
+[tool.pylint.messages_control]
+disable = [
+    "import-error",
+    "wrong-import-position",
+    "import-outside-toplevel",
+    "too-many-locals",
+    "invalid-name",
+    "pointless-statement",
+    "redefined-outer-name",
+    "broad-except",
+    "line-too-long"
+    ]
+
+[tool.isort]
+profile="black"

@@ -1,0 +1,23 @@
+numpy
+pandas==1.4.3
+psutil==5.9.1
+plotly
+plotly-express
+psycopg2-binary
+mlflow
+jupyter
+jupyter_contrib_nbextensions
+astroid
+scikit-learn==1.1.2
+typing-extensions==4.3.0
+statsmodels
+seaborn
+hyperopt
+xgboost==1.6.1
+boto3
+werkzeug==2.2.2
+pendulum
+Flask
+evidently
+prometheus-client
+apache-airflow==2.3.3 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-3.9.txt"

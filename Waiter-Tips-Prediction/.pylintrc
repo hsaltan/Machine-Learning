@@ -1,0 +1,14 @@
+[MESSAGES CONTROL]
+disable=
+    import-error, # E0401
+    wrong-import-position, # C0413
+    import-outside-toplevel, # C0415
+    too-many-locals, # R0914
+    invalid-name, # C0103
+    pointless-statement, # W0104
+    redefined-outer-name, # W0621
+    broad-except, # W0703
+    line-too-long, # C0301
+    too-many-statements, # R0915
+    no-name-in-module, # E0611
+    duplicate-code # R0801

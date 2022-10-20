@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Entry Page{% endblock %}
+
+{% block content %}
+<body style="background-color:powderblue;">
+<br><br>
+<h3 style="text-align: center;">Waiter Tip Prediction</h3>
+<br><br>
+<form action="#" method="post" align="center">
+   <text style="font-size:15px; font-style: italic;">Total bill in dollars including tax:</text>
+	<p><input type="text" name="nm" placeholder="e.g.12.45" required="required" style="width: 260px; height:30px; font-size:14px;"/></p>
+   <text style="font-size:15px; font-style: italic;">Whether the person smoked or not:</text>
+   <p><select name="smoker" method="GET" required="required" style="width: 260px; height:30px; font-size:14px;" action="/">
+      {% for each in smokers %}
+          <option value="{{each}}" SELECTED>{{each}}</option>"
+      {% endfor %}
+  </select></p>
+  <text style="font-size:15px; font-style: italic;">Gender of the person paying the bill:</text>
+  <p><select name="gender" method="GET" required="required" style="width: 260px; height:30px; font-size:14px;" action="/">
+   {% for each in genders %}
+       <option value="{{each}}" SELECTED>{{each}}</option>"
+   {% endfor %}
+   </select></p>
+   <text style="font-size:15px; font-style: italic;">Day of the week:</text>
+   <p><select name="week_day" method="GET" required="required" style="width: 260px; height:30px; font-size:14px;" action="/">
+      {% for each in week_days %}
+         <option value="{{each}}" SELECTED>{{each}}</option>"
+      {% endfor %}
+   </select></p>
+   <text style="font-size:15px; font-style: italic;">Lunch or dinner:</text>
+   <p><select name="day_time" method="GET" required="required" style="width: 260px; height:30px; font-size:14px;" action="/">
+      {% for each in day_times %}
+         <option value="{{each}}" SELECTED>{{each}}</option>"
+      {% endfor %}
+   </select></p>
+   <text style="font-size:15px; font-style: italic;">Number of people attending:</text>
+	<p><input type="text" name="rm" placeholder="e.g.5" required="required" style="width: 260px; height:30px; font-size:14px;"/></p>
+	<br>
+	<p><input type="submit" value="Submit" style="width: 100px; height:30px; font-size:15px;"/></p>
+</form>
+<br>
+<h5 style="text-align: center; color:blue;">Predicted tip amount: US$ {{ result }}</h5>
+<br>
+<p style="text-align:center; font-size:14px; color:blue;">
+<text>Total bill (US$): {{total_bill}}</text><br>
+<text>Number of people: {{size}}</text><br>
+<text>Smoker or non-smoker: {{smoker_value}}</text><br>
+<text>Gender: {{gender_value}}</text><br>
+<text>Week day: {{week_day_value}}</text><br>
+<text>Time: {{day_time_value}}</text>
+</p>
+</body>
+{% endblock %}
