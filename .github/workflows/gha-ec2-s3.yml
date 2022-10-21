@@ -13,12 +13,10 @@ jobs:
     name: Upload to S3
     runs-on: ubuntu-latest
     
-    env:
-      S3_BUCKET: ${{ secrets.AWS_BUCKET }}
-      S3_KEY: "data/tips.csv"
-      FILE: "Machine-Learning/Waiter-Tips-Prediction/data/tips.csv"
-
     steps:
+      - name: Main Branch
+        uses: actions/checkout@main
+    
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -27,4 +25,10 @@ jobs:
           aws-region: eu-west-1
 
       - name: Upload File to Bucket
-        run: aws s3 cp $FILE "s3://$S3_BUCKET/$S3_KEY"
+        env:
+          S3_BUCKET: ${{ secrets.AWS_BUCKET }}
+          S3_KEY: "data/tips.csv"
+          FILE: "Machine-Learning/Waiter-Tips-Prediction/data/tips.csv"
+        run: |
+          - sudo apt install awscli -y
+          - aws s3 cp $FILE "s3://$S3_BUCKET/$S3_KEY"
