@@ -16,7 +16,7 @@ jobs:
     env:
       S3_BUCKET: ${{ secrets.AWS_BUCKET }}
       S3_KEY: "data/tips.csv"
-      FILE: "./Waiter-Tips-Prediction/data/tips.csv"
+      FILE: "Waiter-Tips-Prediction/data/tips.csv"
 
     steps:
       - name: Configure AWS credentials
