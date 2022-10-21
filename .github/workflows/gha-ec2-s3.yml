@@ -1,0 +1,38 @@
+name: Push-to-EC2 and Upload to S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # Deploy code to EC2
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the Files
+        uses: actions/checkout@v2
+
+      - name: Deploy to EC2
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+          SOURCE: "hsaltan/Machine-Learning/Waiter-Tips-Prediction/"
+
+  # Upload file to S3
+  upload:
+      name: Upload to S3
+      runs-on: ubuntu-latest
+      steps:
+        - uses: hkusu/s3-upload-action@v2
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: "eu-west-1"
+            aws-bucket: ${{ secrets.AWS_BUCKET }}
+            file-path: "./data/tips.csv"
