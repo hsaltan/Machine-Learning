@@ -7,6 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
+
   # Upload file to S3
   upload:
     name: Upload to S3
@@ -26,6 +27,5 @@ jobs:
         aws-region: eu-west-1
 
     - name: Upload File to Bucket
-      run: |
-        aws s3 cp $FILE "s3://$S3_BUCKET/$S3_KEY"
+      run: aws s3 cp $FILE "s3://$S3_BUCKET/$S3_KEY"
                  
