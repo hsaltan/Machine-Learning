@@ -19,13 +19,12 @@ jobs:
       FILE: "./Waiter-Tips-Prediction/data/tips.csv"
 
     steps:
-    - name: Configure AWS credentials
-    - uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-west-1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
 
-    - name: Upload File to Bucket
-      run: aws s3 cp $FILE "s3://$S3_BUCKET/$S3_KEY"
-                 
+      - name: Upload File to Bucket
+        run: aws s3 cp $FILE "s3://$S3_BUCKET/$S3_KEY"
