@@ -30,5 +30,4 @@ jobs:
           S3_KEY: "data/tips.csv"
           FILE: "Machine-Learning/Waiter-Tips-Prediction/data/tips.csv"
         run: |
-          - sudo apt install awscli -y
           - aws s3 cp $FILE "s3://$S3_BUCKET/$S3_KEY"
