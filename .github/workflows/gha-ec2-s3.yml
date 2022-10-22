@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: Main Branch
         uses: actions/checkout@main
+        
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: Deploy Code to EC2
         uses: easingthemes/ssh-deploy@main
@@ -21,4 +25,5 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}         
+          TARGET: ${{ secrets.TARGET_DIR }}
+          
