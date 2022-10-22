@@ -29,6 +29,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
-          port: 0
+          port: 22
           target: ${{ secrets.TARGET_DIR }}
           
