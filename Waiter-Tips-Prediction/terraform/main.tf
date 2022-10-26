@@ -149,17 +149,7 @@ resource "aws_security_group" "wtp_rds_sg" {
   }
 }
 
-/* resource "aws_vpc_endpoint" "wtp_s3" {
-  vpc_id       = aws_vpc.wtp_vpc.id
-  service_name = "com.amazonaws.eu-west-1.s3"
-
-  tags = {
-    Name        = "wtp_s3_gtw_endpoint"
-    Environment = "production"
-  }
-} */
-
-/* resource "aws_s3_bucket" "s3b-tip-predictor" {
+resource "aws_s3_bucket" "s3b-tip-predictor" {
   bucket = var.bucket
   tags = {
     Name        = "my-bucket"
@@ -167,12 +157,40 @@ resource "aws_security_group" "wtp_rds_sg" {
   }
 }
 
-resource "aws_s3_object" "config_folder" {
+resource "aws_s3_bucket_public_access_block" "wtp_public_access" {
+  bucket = aws_s3_bucket.s3b-tip-predictor.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_acl" "wtp_bucket_acl" {
+  bucket = aws_s3_bucket.s3b-tip-predictor.id
+  acl    = "public-read"
+}
+
+resource "aws_s3_object" "object1" {
   bucket = aws_s3_bucket.s3b-tip-predictor.id
   acl    = "private"
   key    = "config/requirements.txt"
-  source = "~/Downloads/waiter_tips_prediction/requirements.txt"
-} */
+  source = "../requirements.txt"
+}
+
+resource "aws_s3_object" "object2" {
+  bucket = aws_s3_bucket.s3b-tip-predictor.id
+  acl    = "private"
+  key    = "config/prometheus-config.yml"
+  source = "../prometheus-config.yml"
+}
+
+resource "aws_s3_object" "object3" {
+  bucket = aws_s3_bucket.s3b-tip-predictor.id
+  acl    = "private"
+  key    = "config/start.sh"
+  source = "../start.sh"
+}
 
 resource "aws_key_pair" "wtp_key" {
   key_name   = "wtpkey"
@@ -186,7 +204,7 @@ resource "aws_instance" "wtp_node" {
   vpc_security_group_ids = [aws_security_group.wtp_ec2_sg.id]
   subnet_id              = aws_subnet.wtp_public_subnet.id
   iam_instance_profile   = aws_iam_instance_profile.wtp_ec2_profile.name
-  user_data              = file("userdata.tpl")
+  user_data              = file("userdata.sh")
 
   root_block_device {
     volume_size = 30
@@ -209,23 +227,23 @@ resource "aws_instance" "wtp_node" {
 
 /* resource "aws_s3_object" "data_folder" {
   bucket = aws_s3_bucket.s3b-tip-predictor.id
-  acl    = "private"
+  acl    = "public-read"
   key    = "data/tips.csv"
-  source = "~/Downloads/waiter_tips_prediction/data/tips.csv"
+  source = "../data/tips.csv"
 }
 
 resource "aws_s3_object" "evidently_folder" {
   bucket = aws_s3_bucket.s3b-tip-predictor.id
   acl    = "private"
   key    = "evidently/"
-  source = "~/Downloads/waiter_tips_prediction/init.txt"
+  source = "../init.txt"
 }
 
 resource "aws_s3_object" "mlflow_folder" {
   bucket = aws_s3_bucket.s3b-tip-predictor.id
   acl    = "private"
   key    = "mlflow/"
-  source = "~/Downloads/waiter_tips_prediction/init.txt"
+  source = "../init.txt"
 }
 
 resource "aws_sns_topic" "waiter_tip_topic" {

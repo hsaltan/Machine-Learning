@@ -7,7 +7,7 @@ variable "bucket" {
 variable "sns_endpoint" {
   type        = string
   description = "Receiver email endpoint"
-  default     = "hsaltan@yahoo.com"
+  default     = "serdarsbox-1@yahoo.com"
 }
 
 variable "artifact_paths" {

@@ -18,3 +18,6 @@ airflow-scheduler.log
 airflow-webserver.log
 webserver_config.py
 airflow.cfg
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+.terraform.lock.hcl
