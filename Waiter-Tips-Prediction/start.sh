@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ./Waiter-Tips-Prediction
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/ubuntu/.profile
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/ubuntu/.profile
@@ -15,16 +16,17 @@ sudo systemctl status postgresql.service --no-pager
 sleep 5
 sudo systemctl status grafana-server --no-pager
 sleep 5
-sudo pip install chardet==4.0.0
-sudo pip install requests -U
-sudo pip install -U click
-sudo pip uninstall Flask-WTF -y
-sudo pip uninstall  WTForms -y
-sudo pip install Flask-WTF==0.15.1
-sudo pip install  WTForms==2.3.3
+pip install chardet==4.0.0
+pip install requests -U
+pip install -U click
+pip uninstall Flask-WTF -y
+pip uninstall  WTForms -y
+pip install Flask-WTF==0.15.1
+pip install  WTForms==2.3.3
 echo 'export AIRFLOW_HOME=/home/ubuntu/Waiter-Tips-Prediction'
-sudo airflow db init
-sudo airflow users create --username serdar --password pass123 --firstname serdar --lastname altan --role Admin --email admin@example.com
+sudo chmod -R 777 /home/ubuntu/Waiter-Tips-Prediction
+airflow db init
+airflow users create --username serdar --password pass123 --firstname serdar --lastname altan --role Admin --email admin@example.com
 sudo -i -u postgres
 psql \
    --host=mlflow-database.cmpdlb9srhwd.eu-west-1.rds.amazonaws.com  \

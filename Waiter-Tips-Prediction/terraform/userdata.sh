@@ -7,7 +7,7 @@ sudo apt install python3.9 -y
 alias python3=python3.9
 sudo apt install awscli -y
 mkdir Waiter-Tips-Prediction
-echo 'export PATH="${HOME}:${PATH}"' >> .bashrc
+echo 'export PATH="${HOME}/Waiter-Tips-Prediction:${PATH}"' >> .bashrc
 echo 'alias python3=python3.9' >> .bashrc
 echo 'export PGPASSWORD=password' >> .bashrc
 source .bashrc
@@ -16,7 +16,9 @@ aws s3 cp s3://s3b-tip-predictor/config/requirements.txt ./Waiter-Tips-Predictio
 aws s3 cp s3://s3b-tip-predictor/config/prometheus-config.yml ./Waiter-Tips-Prediction
 aws s3 cp s3://s3b-tip-predictor/config/start.sh ./Waiter-Tips-Prediction
 chmod +x ./Waiter-Tips-Prediction/start.sh
-sudo pip install -r ./Waiter-Tips-Prediction/requirements.txt
+cd ./Waiter-Tips-Prediction
+pip install -r requirements.txt
+sudo apt-get install build-essential procps curl file git -y
 sudo apt-get install -y apt-transport-https
 sudo apt-get install -y software-properties-common wget
 sudo wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
@@ -28,6 +30,6 @@ sudo systemctl start grafana-server
 sudo systemctl enable grafana-server.service
 sudo apt install -y postgresql postgresql-contrib
 sudo systemctl start postgresql.service
+cd ..
 echo 'export AIRFLOW_HOME=/home/ubuntu/Waiter-Tips-Prediction' >> .bashrc
 source .bashrc
-sudo apt-get install build-essential procps curl file git -y
