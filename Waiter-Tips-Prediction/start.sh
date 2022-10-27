@@ -24,7 +24,7 @@ pip uninstall  WTForms -y
 pip install Flask-WTF==0.15.1
 pip install  WTForms==2.3.3
 echo 'export AIRFLOW_HOME=/home/ubuntu/Waiter-Tips-Prediction'
-sudo chmod -R 777 /home/ubuntu/Waiter-Tips-Prediction
+sudo chmod -R 777 /home/ubuntu
 airflow db init
 airflow users create --username serdar --password pass123 --firstname serdar --lastname altan --role Admin --email admin@example.com
 sudo -i -u postgres
