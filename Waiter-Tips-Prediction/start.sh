@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ./Waiter-Tips-Prediction
+cd ./app/Waiter-Tips-Prediction
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/ubuntu/.profile
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/ubuntu/.profile
@@ -8,7 +8,7 @@ sudo apt-get install build-essential
 brew install gcc
 brew install prometheus
 brew services restart prometheus
-cp -f /home/ubuntu/Waiter-Tips-Prediction/prometheus-config.yml /home/linuxbrew/.linuxbrew/etc/prometheus.yml
+cp -f /home/ubuntu/app/Waiter-Tips-Prediction/prometheus-config.yml /home/linuxbrew/.linuxbrew/etc/prometheus.yml
 brew services restart prometheus
 brew services info prometheus
 sleep 5
@@ -23,8 +23,8 @@ pip uninstall Flask-WTF -y
 pip uninstall  WTForms -y
 pip install Flask-WTF==0.15.1
 pip install  WTForms==2.3.3
-echo 'export AIRFLOW_HOME=/home/ubuntu/Waiter-Tips-Prediction'
-sudo chmod -R 777 /home/ubuntu
+echo 'export AIRFLOW_HOME=/home/ubuntu/app/Waiter-Tips-Prediction'
+sudo chmod -R 707 /home/ubuntu/app
 airflow db init
 airflow users create --username serdar --password pass123 --firstname serdar --lastname altan --role Admin --email admin@example.com
 sudo -i -u postgres
