@@ -199,7 +199,7 @@ resource "aws_key_pair" "wtp_key" {
 
 resource "aws_instance" "wtp_node" {
   ami                    = data.aws_ami.server_ami.id
-  instance_type          = "t2.micro"
+  instance_type          = "t2.large"
   key_name               = aws_key_pair.wtp_key.id
   vpc_security_group_ids = [aws_security_group.wtp_ec2_sg.id]
   subnet_id              = aws_subnet.wtp_public_subnet.id
@@ -225,7 +225,7 @@ resource "aws_instance" "wtp_node" {
   }
 }
 
-/* resource "aws_s3_object" "data_folder" {
+resource "aws_s3_object" "data_folder" {
   bucket = aws_s3_bucket.s3b-tip-predictor.id
   acl    = "public-read"
   key    = "data/tips.csv"
@@ -349,4 +349,4 @@ resource "aws_ssm_parameter" "tracking_server_host" {
     Name        = "tracking_server_host"
     Environment = "production"
   }
-} */
+}

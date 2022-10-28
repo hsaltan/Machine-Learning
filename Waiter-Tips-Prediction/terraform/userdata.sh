@@ -7,9 +7,10 @@ sudo apt install python3.9 -y
 alias python3=python3.9
 sudo apt install awscli -y
 mkdir app
-cd /app
+cd ./app
 mkdir Waiter-Tips-Prediction
 cd ..
+sudo chmod -R 707 /home/ubuntu/app
 echo 'export PATH="${HOME}/app/Waiter-Tips-Prediction:${PATH}"' >> .bashrc
 echo 'alias python3=python3.9' >> .bashrc
 echo 'export PGPASSWORD=password' >> .bashrc

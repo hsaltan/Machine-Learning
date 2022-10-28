@@ -24,18 +24,15 @@ pip uninstall  WTForms -y
 pip install Flask-WTF==0.15.1
 pip install  WTForms==2.3.3
 echo 'export AIRFLOW_HOME=/home/ubuntu/app/Waiter-Tips-Prediction'
-sudo chmod -R 707 /home/ubuntu/app
-airflow db init
-airflow users create --username serdar --password pass123 --firstname serdar --lastname altan --role Admin --email admin@example.com
 sudo -i -u postgres
 psql \
-   --host=mlflow-database.cmpdlb9srhwd.eu-west-1.rds.amazonaws.com  \
+   --host=wtp-rds-instance.cmpdlb9srhwd.eu-west-1.rds.amazonaws.com  \
    --port=5432 \
    --username=postgres \
    --password \
    --dbname=mlflow_db <<EOF
 CREATE DATABASE mlflow;
 CREATE DATABASE airflow;
-CREATE DATABASE evidentlyy;
+CREATE DATABASE evidently;
 \l
 EOF
