@@ -66,10 +66,10 @@ def test_get_vars() -> None:
 
     assert bucket == "s3b-tip-predictor"
     assert file_name == "data/tips.csv"
-    assert local_path == "/home/ubuntu/Waiter-Tips-Prediction/"
+    assert local_path == "/home/ubuntu/app/Waiter-Tips-Prediction/"
     assert (
         local_data_transformed_filename
-        == "/home/ubuntu/Waiter-Tips-Prediction/data/tips_transformed.csv"
+        == "/home/ubuntu/app/Waiter-Tips-Prediction/data/tips_transformed.csv"
     )
     assert mlflow_experiment_name == "mlflow-experiment-1"
     assert evidently_experiment_name == "evidently-experiment-1"
@@ -131,7 +131,7 @@ def test_put_object() -> None:
 
     # Upload a dummy object into the S3 bucket
     put_object(
-        "/home/ubuntu/Waiter-Tips-Prediction/data/tips.csv",
+        "/home/ubuntu/app/Waiter-Tips-Prediction/data/tips.csv",
         bucket,
         key,
         "Name",

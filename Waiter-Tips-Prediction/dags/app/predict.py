@@ -20,7 +20,7 @@
 import sys
 
 sys.path.insert(
-    1, "/home/ubuntu/Waiter-Tips-Prediction/dags/utils"
+    1, "/home/ubuntu/app/Waiter-Tips-Prediction/dags/utils"
 )
 from typing import Any, Union
 

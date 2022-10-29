@@ -18,7 +18,7 @@
 # Import libraries
 import sys
 
-sys.path.insert(1, "/home/ubuntu/Waiter-Tips-Prediction/dags/app")
+sys.path.insert(1, "/home/ubuntu/app/Waiter-Tips-Prediction/dags/app")
 from flask import Flask, render_template, request
 from predict import predict
 

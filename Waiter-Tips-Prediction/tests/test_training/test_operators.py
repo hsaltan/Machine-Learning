@@ -85,8 +85,8 @@ def test_transform_data(the_dag: Any) -> None:
     result = task.execute(context={})
 
     local_dict = {
-        "current_dir": "/home/ubuntu/Waiter-Tips-Prediction/",
-        "local_data_transformed_filename": "/home/ubuntu/Waiter-Tips-Prediction/data/tips_transformed.csv",
+        "current_dir": "/home/ubuntu/app/Waiter-Tips-Prediction/",
+        "local_data_transformed_filename": "/home/ubuntu/app/Waiter-Tips-Prediction/data/tips_transformed.csv",
     }
     bucket_name = "s3b-tip-predictor"
 
@@ -126,7 +126,7 @@ def test_define_variables(the_dag: Any) -> None:
         },
         "s3_dict": {"bucket_name": "s3b-tip-predictor", "key": "data/tips.csv"},
         "local_dict": {
-            "current_dir": "/home/ubuntu/Waiter-Tips-Prediction/"
+            "current_dir": "/home/ubuntu/app/Waiter-Tips-Prediction/"
         },
     }
 
