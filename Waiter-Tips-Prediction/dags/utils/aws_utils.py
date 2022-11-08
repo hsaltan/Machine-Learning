@@ -124,7 +124,7 @@ def send_sns_topic_message(topic_arn: str, message: str, subject: str) -> str:
     Sends a notification to subscribers by email.
     """
 
-    response = boto3.client("sns").publish(
+    response = boto3.client("sns", region_name=region).publish(
         TopicArn=topic_arn,
         Message=message,
         Subject=subject,

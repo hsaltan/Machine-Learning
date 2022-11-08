@@ -384,10 +384,13 @@ def monitor_evidently(flag=0) -> Union[None, Dict[str, Any]]:
         else:
             label = "na"
 
-        metric_key = f"evidently:{metric.name}:{label}"
-        prom_metric = pc.Gauge(metric_key, "", registry=registry)
-        prom_metric.set(value)
-        metrics[f"evidently_{i}"] = prom_metric
+        try:
+            metric_key = f"evidently:{metric.name}:{label}"
+            prom_metric = pc.Gauge(metric_key, "", registry=registry)
+            prom_metric.set(value)
+            metrics[f"evidently_{i}"] = prom_metric
+        except:
+            pass
 
     logging.info(
         "Evidently data metrics were translated to Prometheus for \

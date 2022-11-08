@@ -17,7 +17,6 @@ xgboost==1.6.1
 boto3
 werkzeug==2.2.2
 pendulum
-Flask
 evidently
 prometheus-client
 apache-airflow==2.4.2 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.4.2/constraints-3.9.txt"

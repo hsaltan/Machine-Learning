@@ -72,7 +72,6 @@ mlflow_client = MlflowClient(mlflow_tracking_uri)
 
 # Retrieve the initial path and mlflow artifact path from AWS Parameter Store.
 try:
-    # Artifacts will be stored in S3.
     mlflow_artifact_path = json.loads(get_parameter("artifact_paths"))[
         "mlflow_model_artifacts_path"
     ]  # models_mlflow
@@ -80,7 +79,8 @@ try:
         "mlflow_model_initial_path"
     ]  # s3://s3b-tip-predictor/mlflow/
 except:
-    pass
+    mlflow_artifact_path = "models_mlflow"
+    mlflow_initial_path = "s3://s3b-tip-predictor/mlflow/"
 
 
 def search_best_parameters(tag: str) -> dict[str, Union[int, float]]:

@@ -21,6 +21,7 @@ aws s3 cp s3://s3b-tip-predictor/config/prometheus-config.yml ./app/Waiter-Tips-
 aws s3 cp s3://s3b-tip-predictor/config/start.sh ./app/Waiter-Tips-Prediction
 chmod +x ./app/Waiter-Tips-Prediction/start.sh
 cd ./app/Waiter-Tips-Prediction
+python3.9 -m pip install flask
 pip install -r requirements.txt
 sudo apt-get install build-essential procps curl file git -y
 sudo apt-get install -y apt-transport-https
