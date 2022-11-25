@@ -29,7 +29,7 @@ In this MLOps project, we predict waiter tips based on features named _total bil
 Later, we initiate the _MLflow_ and _Airflow_ servers to track experiments and manage the workflow. _Airflow_ automatically runs every month, checking if any new data exists in the _S3_ bucket and retrieving it from there to train a new model. The application saves the latest model in the _S3_ bucket to use in the production environment. We can watch all metrics by _Evidently_ on the localhost and by _Prometheus_ on the _Grafana_ dashboard. Every time we train the model and check for any data and concept drift, the user also receives an email notification.
 
 <p align="center"> 
-<img src="https://github.com/hsaltan/Machine-Learning/tree/main/Waiter-Tips-Prediction/images/wtp-diagram.png" />
+<img src="https://github.com/hsaltan/Machine-Learning/blob/main/Waiter-Tips-Prediction/images/wtp-diagram.png" />
 </p>
 
 Users can access the application through a web interface on _Flask_.
