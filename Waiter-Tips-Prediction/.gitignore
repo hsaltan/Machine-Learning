@@ -21,3 +21,5 @@ airflow.cfg
 terraform.tfstate
 terraform.tfstate.backup
 .terraform.lock.hcl
+images/wtp-diagram.drawio
+article/
