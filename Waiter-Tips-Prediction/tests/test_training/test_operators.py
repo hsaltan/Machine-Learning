@@ -125,9 +125,7 @@ def test_define_variables(the_dag: Any) -> None:
             "model_name": "xgboost-model",
         },
         "s3_dict": {"bucket_name": "s3b-tip-predictor", "key": "data/tips.csv"},
-        "local_dict": {
-            "current_dir": "/home/ubuntu/app/Waiter-Tips-Prediction/"
-        },
+        "local_dict": {"current_dir": "/home/ubuntu/app/Waiter-Tips-Prediction/"},
     }
 
     task = PythonOperator(

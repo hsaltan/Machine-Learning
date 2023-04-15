@@ -49,8 +49,11 @@ from evidently.model_monitoring import (
 from evidently.model_profile import Profile
 from evidently.model_profile.sections import DataDriftProfileSection
 from evidently.pipeline.column_mapping import ColumnMapping
-from utils.airflow_utils import get_vars
-from utils.aws_utils import get_parameter, put_object, send_sns_topic_message
+from ..utils.airflow_utils import get_vars
+from ..utils.aws_utils import get_parameter, put_object, send_sns_topic_message
+
+# from utils.airflow_utils import get_vars
+# from utils.aws_utils import get_parameter, put_object, send_sns_topic_message
 
 # Define the column mapping
 column_mapping = ColumnMapping()

@@ -23,8 +23,11 @@
 import logging
 
 from airflow.models import Variable
-from utils.airflow_utils import get_vars
-from utils.aws_utils import get_bucket_object, put_object
+from ..utils.airflow_utils import get_vars
+from ..utils.aws_utils import get_bucket_object, put_object
+
+# from utils.airflow_utils import get_vars
+# from utils.aws_utils import get_bucket_object, put_object
 
 
 def transform_data() -> tuple[dict[str, str], str, int, int, int]:

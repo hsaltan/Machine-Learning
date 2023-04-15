@@ -24,7 +24,7 @@
 [![Pytest](https://img.shields.io/badge/pytest-7.1.3-009fe2)](https://docs.pytest.org/en/7.2.x/)
 <br><br><br>
 
-In this MLOps project, we predict waiter tips based on features named _total bill, gender, smoker, day, time, and size_. We first deploy resources on _AWS_ with _Terraform_. Once we have all the data, the model, and scripts on the local machine and have completed the tests, we commit the project directory onto _GitHub_, which, through _Actions_, installs the files on Ubuntu virtual machine.
+In this MLOps project, we predict waiter tips with XGBoost based on features named _total bill, gender, smoker, day, time, and size_. We first deploy resources on _AWS_ with _Terraform_. Once we have all the data, the model, and scripts on the local machine and have completed the tests, we commit the project directory onto _GitHub_, which, through _Actions_, installs the files on Ubuntu virtual machine.
 
 Later, we initiate the _MLflow_ and _Airflow_ servers to track experiments and manage the workflow. _Airflow_ automatically runs every month, checking if any new data exists in the _S3_ bucket and retrieving it from there to train a new model. The application saves the latest model in the _S3_ bucket to use in the production environment. We can watch all metrics by _Evidently_ on the localhost and by _Prometheus_ on the _Grafana_ dashboard. Every time we train the model and check for any data and concept drift, the user also receives an email notification.
 
@@ -130,3 +130,18 @@ make mlflow_5500
 make airflow_web
 make airflow_scheduler
 ```
+<br>
+
+## Documentation
+
+More information can be found in the series of articles on Medium under the title *How to Put an ML Model into Production.* The articles are:
+
+* [A Case from Tipping the Waiter: Use of Algorithms, Tools, and Technologies to Turn an Idea into a Beneficial Application, Part-1: Training with XGBoost, Hyperparameter Optimization, and Experiment Tracking](https://medium.com/@hsaltan/how-to-put-an-ml-model-into-production-8040b074e41a)
+* [Part 2: Evaluating, Testing, and Monitoring the ML Model, and Measuring the Data Quality and Drift with Evidently](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-dc3a99eeb2cc)
+* [Part 3: Collecting, Storing, and Visualizing ML Model and Data Performance Metrics with Prometheus and Grafana](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-d00b3e792fc)
+* [Part 4: Developing, Scheduling, and Monitoring Batch-Oriented Workflows with Apache Airflow](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-297c25148f81)
+* [Part 5: Unit Testing with Pytest and Apache Airflow Testing](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-837fcc0afb48)
+* [Part 6: Sorting Imports with isort, Formatting the Code with Black, and Linting with Pylint](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-8ad53d8c92a8)
+* [Part 7: Identifying Issues Before Submission with pre-commit, and Simulating AWS Services with LocalStack](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-997bcb53bdfe)
+* [Part 8: Building and Deploying the Infrastructure on AWS with Terraform and Boto3](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-128bfc4b503f)
+* [Part 9: Building Web UI with Flask, Deploying the Code into AWS with GitHub Actions, Connecting to the Remote Server, Executing Shell Script and Makefile, and Running the Application](https://medium.com/dev-genius/how-to-put-an-ml-model-into-production-cd4de37df4e6)

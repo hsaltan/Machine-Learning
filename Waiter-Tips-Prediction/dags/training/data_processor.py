@@ -42,9 +42,9 @@ from hyperopt.pyll import scope
 from mlflow.tracking import MlflowClient
 from numpy import loadtxt
 from sklearn.metrics import mean_squared_error
-from utils.airflow_utils import get_vars
-from utils.aws_utils import create_parameter, get_parameter, send_sns_topic_message
-from utils.mlflow_utils import (
+from ..utils.airflow_utils import get_vars
+from ..utils.aws_utils import create_parameter, get_parameter, send_sns_topic_message
+from ..utils.mlflow_utils import (
     delete_version,
     get_best_params,
     get_latest_version,
@@ -57,6 +57,22 @@ from utils.mlflow_utils import (
     update_registered_model,
     wait_until_ready,
 )
+
+# from utils.airflow_utils import get_vars
+# from utils.aws_utils import create_parameter, get_parameter, send_sns_topic_message
+# from utils.mlflow_utils import (
+#     delete_version,
+#     get_best_params,
+#     get_latest_version,
+#     list_experiments,
+#     load_models,
+#     register_model,
+#     search_runs,
+#     transition_to_stage,
+#     update_model_version,
+#     update_registered_model,
+#     wait_until_ready,
+# )
 
 # We store variables that won't change often in AWS Parameter Store.
 tracking_server_host = get_parameter(
