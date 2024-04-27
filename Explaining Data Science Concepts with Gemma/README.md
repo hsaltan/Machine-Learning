@@ -2,7 +2,7 @@
 #     Explaining Data Science Concepts with Gemma
 
 <p align="center"> 
-<img src="https://i.ibb.co/J7291t1/kaggle-9.png" alt="kaggle-9" border="0">
+<img src="https://i.ibb.co/J7291t1/kaggle-9.png">
 </p>
 
 [![Gemma](https://img.shields.io/badge/Gemma-gemma_2b_en-%233582ff?style=flat&label=Gemma&labelColor=%231a2331)](https://blog.google/technology/developers/gemma-open-models/)
