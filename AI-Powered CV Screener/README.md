@@ -24,7 +24,7 @@ Follow these steps to deploy the app:
 2. Upload the three files (`cvanalyzer.py`, `web_app.py`, `HR_image_1.png`) to the *application files* bucket.
 3. Create another bucket with a unique name for storing selected CVs; this will be your *cv files* bucket. In the `web_app.py file`, replace the placeholder for the *cv files* bucket name with your specific bucket name.
 4. Define a secure string parameter for the OpenAI API key using the Parameter Store in AWS Systems Manager.
-5. Create the following IAM policy: `CVScreenerSSMPolicy`,
+5. Create the following IAM policy: `CVScreenerPolicy`,
 
 ```
 {
@@ -53,17 +53,17 @@ Follow these steps to deploy the app:
                 "s3:Put*"
             ],
             "Resource": [
-                "arn:aws:s3:::<YOUR-APP-FILES>",
-                "arn:aws:s3:::<YOUR-APP-FILES>/*",
-                "arn:aws:s3:::<YOUR-CV-FILES>",
-                "arn:aws:s3:::<YOUR-CV-FILES>/*"
+                "arn:aws:s3:::<YOUR-APP-FILES-BUCKET>",
+                "arn:aws:s3:::<YOUR-APP-FILES-BUCKET>/*",
+                "arn:aws:s3:::<YOUR-CV-FILES-BUCKET>",
+                "arn:aws:s3:::<YOUR-CV-FILES-BUCKET>/*"
             ]
         }
     ]
 }
 ```
 6. Create an IAM role named `CVScreenerRole`.
-7. Attach the policy `CVScreenerSSMPolicy` to the role `CVScreenerRole`.
+7. Attach the policy `CVScreenerPolicy` to the role `CVScreenerRole`.
 8. Launch an EC2 instance with the following specifications:
     - Choose Ubuntu 24.04 as the AMI.
     - Select t2.micro as the instance type.
