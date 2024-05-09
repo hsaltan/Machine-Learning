@@ -22,7 +22,7 @@ Before deploying the app, please complete the following preliminary steps:
 Follow these steps to deploy the app:
 1. Create a bucket with a unique name in AWS to serve as the *application files* bucket.
 2. Upload the three files (`cvanalyzer.py`, `web_app.py`, `HR_image_1.png`) to the *application files* bucket.
-3. Create another bucket with a unique name for storing selected CVs; this will be your *cv files* bucket.
+3. Create another bucket with a unique name for storing selected CVs; this will be your *cv files* bucket. In the `web_app.py file`, replace the placeholder for the *cv files* bucket name with your specific bucket name.
 4. Define a secure string parameter for the OpenAI API key using the Parameter Store in AWS Systems Manager.
 5. Create the following IAM policy: `CVScreenerSSMPolicy`,
 
@@ -35,7 +35,7 @@ Follow these steps to deploy the app:
             "Action": [
                 "ssm:DescribeParameters"
             ],
-            "Resource": "arn:aws:ssm:us-east-1:<YOU-ACCOUNT-ID>:parameter/<YOUR-OPENAI-KEY-PARAM>"
+            "Resource": "arn:aws:ssm:us-east-1:<YOUR-ACCOUNT-ID>:parameter/<YOUR-OPENAI-KEY-PARAM>"
         },
         {
             "Effect": "Allow",
@@ -43,7 +43,7 @@ Follow these steps to deploy the app:
                 "ssm:GetParameters",
                 "ssm:GetParameter"
             ],
-            "Resource": "arn:aws:ssm:us-east-1:<YOU-ACCOUNT-ID>:parameter/<YOUR-OPENAI-KEY-PARAM>"
+            "Resource": "arn:aws:ssm:us-east-1:<YOUR-ACCOUNT-ID>:parameter/<YOUR-OPENAI-KEY-PARAM>"
         },
         {
             "Effect": "Allow",
@@ -88,7 +88,7 @@ pip install streamlit
 pip install python-docx 
 pip install boto3 
 pip install awscli
-aws s3 cp s3://sb3-cv-screening/ . --recursive
+aws s3 cp s3://<YOUR-APPLICATION-FILES-BUCKET-NAME>/ . --recursive
 
 deactivate
 cd ..
