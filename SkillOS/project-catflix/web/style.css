@@ -1,0 +1,64 @@
+:root{
+  --orange:#ff7a00;
+  --white:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--white);
+  color: var(--orange);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+.visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px)!important;padding:0!important;border:0!important;height:1px!important;width:1px!important;overflow:hidden!important;white-space:nowrap!important}
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:var(--white);color:var(--orange);border:2px solid var(--orange);padding:.5rem 1rem;border-radius:999px;z-index:1000}
+
+.site-header{position:fixed;inset-inline:0;top:0;display:flex;justify-content:center;pointer-events:none;z-index:9}
+.site-header .brand{pointer-events:auto;margin:1rem 1rem 0 1rem;padding:.4rem .8rem;border:2px solid var(--orange);border-radius:999px;background:var(--white);display:flex;align-items:center;gap:.5rem}
+.brand-mark{display:inline-flex;color:var(--orange)}
+.brand-name{font-weight:800;letter-spacing:.2px}
+
+.hero{position:relative;min-height:50vh;display:grid;place-items:center;background:var(--white);color:var(--orange);padding:6rem 1.25rem 0}
+.hero-inner{max-width:1000px;text-align:center}
+.headline{font-size:clamp(2rem,4vw+1rem,4rem);line-height:1.05;margin:0 0 .75rem 0}
+.headline-sub{display:block;font-weight:600;font-size:clamp(1rem,1vw+0.75rem,1.35rem);opacity:.9;margin-top:.35rem}
+.tagline{margin:.25rem auto 0 auto;max-width:36ch;font-size:clamp(.95rem,1vw+0.6rem,1.1rem);}
+.hero-icons{display:flex;gap:.75rem;justify-content:center;margin:1.1rem 0 0 0;opacity:.9}
+.hero-icons .icon{width:28px;height:28px;color:var(--orange)}
+
+/* S-shaped divider; inherits orange color */
+.divider{display:block;width:100%;height:clamp(120px,20vw,220px);color:var(--orange)}
+
+.features{min-height:50vh;background:var(--orange);color:var(--white);display:grid;place-items:center;padding:2rem 1rem 5rem}
+.features-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;max-width:1000px;width:100%;align-items:start}
+.feature{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,0.08);border:2px solid var(--white);border-radius:999px;padding:.6rem .9rem}
+.feat-icon{display:inline-flex;color:var(--white)}
+.feat-icon svg{width:22px;height:22px}
+.feat-text{font-weight:700;letter-spacing:.2px}
+
+/* Center uploader overlay */
+.uploader{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none;z-index:10}
+.uploader-card{pointer-events:auto;background:var(--white);color:var(--orange);border:3px solid var(--orange);border-radius:22px;padding:1rem 1.25rem;box-shadow:0 10px 0 0 var(--orange);width:min(92vw,520px);text-align:center}
+
+.btn-primary{appearance:none;border:none;background:var(--white);color:var(--orange);border:3px solid var(--orange);font-weight:900;letter-spacing:.3px;padding:.95rem 2.25rem;border-radius:999px;cursor:pointer;font-size:clamp(1.1rem,1.2vw+1rem,1.4rem);transition:transform .08s ease, background-color .15s ease, color .15s ease}
+.btn-primary:hover,.btn-primary:focus{background:var(--orange);color:var(--white);outline:none}
+.btn-primary:active{transform:translateY(2px)}
+.btn-primary:focus-visible{outline:3px dashed var(--orange);outline-offset:3px}
+
+.help{margin:.65rem 0 0 0;font-size:.9rem;opacity:.9}
+.status{margin:.75rem 0 0 0;font-weight:700}
+.progress{position:relative;height:10px;background:rgba(255,122,0,0.15);border:2px solid var(--orange);border-radius:999px;overflow:hidden;margin:.6rem auto .2rem auto;max-width:420px}
+.progress .bar{display:block;height:100%;width:0;background:var(--orange);animation:load 1.8s ease-out forwards}
+@keyframes load{to{width:100%}}
+
+.preview{width:100%;max-height:45vh;margin:.6rem auto 0 auto;border-radius:14px;border:2px solid var(--orange);background:var(--white)}
+
+.site-footer{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;padding:.5rem 1rem;color:var(--white);background:transparent}
+.site-footer small{background:rgba(255,255,255,0.12);border:2px solid var(--white);padding:.25rem .6rem;border-radius:999px}
+
+/* Responsive tweaks */
+@media (max-width: 800px){
+  .features-inner{grid-template-columns:1fr;gap:.8rem}
+  .feature{justify-content:center}
+}

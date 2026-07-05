@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Project Catflix – a playful mobile app that turns your cat recordings into short, funny documentary videos." />
+  <title>project-catflix — Funny Cat Documentaries from Your Clips</title>
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" aria-label="project-catflix">
+    <div class="brand" aria-label="Project Catflix home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="paw icon">
+          <path d="M7.5 8.2a1.9 1.9 0 1 0 0-3.8 1.9 1.9 0 0 0 0 3.8Zm4.5 1.3a2.1 2.1 0 1 0 0-4.2 2.1 2.1 0 0 0 0 4.2Zm4.5-1.3a1.9 1.9 0 1 0 0-3.8 1.9 1.9 0 0 0 0 3.8ZM12 20.8c2.9 0 5.8-1.8 5.8-4.1 0-1.8-2.5-3.2-5.8-3.2s-5.8 1.4-5.8 3.2c0 2.3 2.9 4.1 5.8 4.1Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      </span>
+      <strong class="brand-name">project-catflix</strong>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-label="Promotional">
+      <div class="hero-inner">
+        <h1 class="headline">
+          From Meow to Wow
+          <span class="headline-sub">Short, funny cat documentaries — auto-made for you.</span>
+        </h1>
+        <p class="tagline">Record. Upload. Let Catflix craft the purrfect mini‑doc.</p>
+        <div class="hero-icons" aria-hidden="true">
+          <!-- Subtle cat-themed line icons (white/orange only) -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 8c0-2 2-4 4-4l1.5 1.2c1 .8 2.5.8 3.5 0L15.5 4C17 4 19 6 19 8v3c0 4-3 7-7 7s-7-3-7-7V8Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18s2-3 8-3 8 3 8 3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 10.5a1.25 1.25 0 1 1-2.5 0A1.25 1.25 0 0 1 9 10.5Zm8.5 0A1.25 1.25 0 1 1 15 10.5a1.25 1.25 0 0 1 2.5 0Z" fill="currentColor"/><path d="M8 14c1 1 2.5 1.5 4 1.5S15 15 16 14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <!-- Smooth S-shaped divider -->
+      <svg class="divider" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,224 C240,128 480,320 720,224 C960,128 1200,32 1440,128 L1440,320 L0,320 Z" fill="currentColor"/>
+      </svg>
+    </section>
+
+    <section class="features" aria-label="Highlights">
+      <div class="features-inner">
+        <div class="feature">
+          <span class="feat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7l4-2 4 2 4-2 4 2v10l-4 2-4-2-4 2-4-2V7Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </span>
+          <span class="feat-text">Auto‑narration vibes</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8l9-5 9 5-9 5-9-5Zm0 8l9 5 9-5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </span>
+          <span class="feat-text">Clips cut for laughs</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 11c0-2.8 2.2-5 5-5s5 2.2 5 5v5H6v-5Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M9 6 7 4M15 6l2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="feat-text">Drop‑in music + captions</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Centered uploader (prominent Upload button at the page center) -->
+  <section class="uploader" aria-label="Upload your cat video">
+    <div class="uploader-card" role="group" aria-labelledby="uploadTitle">
+      <h2 id="uploadTitle" class="visually-hidden">Upload</h2>
+      <button id="uploadBtn" class="btn-primary" type="button" aria-describedby="uploadHelp">Upload</button>
+      <input id="fileInput" type="file" accept="video/*" hidden />
+      <p id="uploadHelp" class="help">MP4, MOV, WEBM. Your video stays on your device in this demo.</p>
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+      <div id="progress" class="progress" hidden><span class="bar"></span></div>
+      <video id="preview" class="preview" controls playsinline hidden></video>
+    </div>
+  </section>
+
+  <footer class="site-footer" aria-label="Footer">
+    <small>© <span id="year"></span> project-catflix</small>
+  </footer>
+</body>
+</html>
